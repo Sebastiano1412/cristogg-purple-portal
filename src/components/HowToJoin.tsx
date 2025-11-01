@@ -67,9 +67,9 @@ const HowToJoin = () => {
                 <img
                   src={tutorial.image}
                   alt={tutorial.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
               </div>
               
               <div className="p-6">

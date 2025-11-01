@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowToJoin from "@/components/HowToJoin";
 import GameModes from "@/components/GameModes";
-import Community from "@/components/Community";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -12,7 +11,6 @@ const Index = () => {
       <Hero />
       <HowToJoin />
       <GameModes />
-      <Community />
       <Footer />
     </div>
   );

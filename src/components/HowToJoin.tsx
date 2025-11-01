@@ -37,12 +37,12 @@ const HowToJoin = () => {
       icon: "🎮",
       image: consoleTutorial,
       steps: [
-        'Scarica l\'app "Mc Connector" sul telefono',
-        'Apri Minecraft sulla Console',
-        'Vai su "Amici" e clicca "Aggiungi Amico"',
-        'Sul telefono inserisci i dati del server',
-        'Connetti Console e Telefono alla stessa WiFi',
-        'Apri Minecraft e vedrai il server negli "Amici"'
+        'Andate nella schermata "Amici"',
+        'Cliccate il pulsante "Cerca giocatori" o "Search players"',
+        'Sulla barra di ricerca scrivete "botCristoGG"',
+        'Aggiungetelo agli amici',
+        'Il BOT accetterà la richiesta entro 30 secondi',
+        'Vi inviterà automaticamente a giocare sul server!'
       ]
     }
   ];

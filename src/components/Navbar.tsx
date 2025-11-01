@@ -20,7 +20,7 @@ const Navbar = () => {
           {/* Logo a sinistra */}
           <a href="/" className="flex items-center gap-3 group">
             <img src={logoImage} alt="Cristo.gg Logo" className="h-10 w-10 group-hover:scale-110 transition-transform" />
-            <span className="text-xl font-orbitron font-bold bg-gradient-primary bg-clip-text text-transparent hidden sm:block">
+            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               CRISTO.GG
             </span>
           </a>

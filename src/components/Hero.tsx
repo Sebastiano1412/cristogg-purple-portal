@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Copy, Check, Users } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import heroImage from "@/assets/hero-bg.jpg";
+import logoImage from "@/assets/logo.png";
 
 const Hero = () => {
   const [copiedIP, setCopiedIP] = useState(false);
@@ -27,11 +28,13 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 pb-12">
-        <h1 className="text-6xl md:text-8xl font-orbitron font-black mb-6 animate-float">
-          <span className="bg-gradient-primary bg-clip-text text-transparent">
-            CRISTO.GG
-          </span>
-        </h1>
+        <div className="flex justify-center mb-8">
+          <img 
+            src={logoImage} 
+            alt="Cristo.gg" 
+            className="h-32 md:h-40 w-auto animate-float drop-shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+          />
+        </div>
         <p className="text-xl md:text-2xl text-foreground/90 mb-12 font-inter">
           Unisciti alla nostra community e vivi un'esperienza unica su Minecraft!
         </p>
@@ -52,7 +55,7 @@ const Hero = () => {
             </div>
             <div className="mb-4">
               <p className="text-sm text-muted-foreground mb-2 font-inter">IP del Server</p>
-              <p className="text-2xl font-orbitron font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <p className="text-2xl font-inter font-bold bg-gradient-primary bg-clip-text text-transparent">
                 {serverIP}
               </p>
             </div>
@@ -89,7 +92,7 @@ const Hero = () => {
             </div>
             <div className="mb-4">
               <p className="text-sm text-muted-foreground mb-2 font-inter">Discord Server</p>
-              <p className="text-2xl font-orbitron font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <p className="text-2xl font-inter font-bold bg-gradient-primary bg-clip-text text-transparent">
                 discord.gg/cristogg
               </p>
             </div>

@@ -50,7 +50,7 @@ const HowToJoin = () => {
   return (
     <section className="py-20 px-4 bg-background">
       <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-russo text-center mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Come <span className="bg-gradient-primary bg-clip-text text-transparent">Entrare</span> su Cristo.gg
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto font-poppins">

@@ -1,6 +1,7 @@
-import { Menu, X, Home, MessageSquare, ShoppingBag, Map, Trophy } from "lucide-react";
+import { Menu, X, Home, MessageSquare, ShoppingBag, Map } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import logoImage from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,23 +11,23 @@ const Navbar = () => {
     { name: "Forum", href: "https://forum.cristo.gg", icon: MessageSquare, external: true },
     { name: "Store", href: "https://store.cristo.gg", icon: ShoppingBag, external: true },
     { name: "Mappa", href: "https://mappa.cristo.gg", icon: Map, external: true },
-    { name: "Coral CUP", href: "#", icon: Trophy, external: false },
   ];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center h-16 relative">
-          {/* Logo - posizionato a sinistra solo su mobile */}
-          <div className="absolute left-0 md:hidden">
-            <a href="/" className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Cristo.gg
-            </a>
-          </div>
+        <div className="flex items-center justify-between h-16">
+          {/* Logo a sinistra */}
+          <a href="/" className="flex items-center gap-3 group">
+            <img src={logoImage} alt="Cristo.gg Logo" className="h-10 w-10 group-hover:scale-110 transition-transform" />
+            <span className="text-xl font-orbitron font-bold bg-gradient-primary bg-clip-text text-transparent hidden sm:block">
+              CRISTO.GG
+            </span>
+          </a>
 
           {/* Desktop Navigation - Centrato */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link, index) => {
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => {
               const IconComponent = link.icon;
               return (
                 <a
@@ -47,7 +48,7 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden absolute right-0"
+            className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X /> : <Menu />}

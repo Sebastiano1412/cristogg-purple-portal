@@ -38,11 +38,11 @@ const Hero = () => {
     fetchMinecraftStatus();
     fetchDiscordStatus();
 
-    // Refresh every 60 seconds
+    // Refresh every 5 seconds
     const interval = setInterval(() => {
       fetchMinecraftStatus();
       fetchDiscordStatus();
-    }, 60000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

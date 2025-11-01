@@ -28,16 +28,13 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 pb-12">
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-12">
           <img 
             src={logoImage} 
             alt="Cristo.gg" 
-            className="h-32 md:h-40 w-auto animate-float drop-shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+            className="h-48 md:h-64 w-auto animate-float drop-shadow-[0_0_40px_rgba(168,85,247,0.6)]"
           />
         </div>
-        <p className="text-xl md:text-2xl text-foreground/90 mb-12 font-poppins font-medium">
-          Unisciti alla nostra community e vivi un'esperienza unica su Minecraft!
-        </p>
 
         {/* Action Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">

@@ -13,7 +13,7 @@ const GameModes = () => {
     },
     {
       title: "Inferno",
-      description: "Affronta le sfide più difficili nel regno infernale.",
+      description: "Combatti, guadagna anime e ottieni cuori.",
       image: infernoImage,
       available: true,
     },

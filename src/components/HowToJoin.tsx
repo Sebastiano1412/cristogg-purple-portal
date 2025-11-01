@@ -10,12 +10,12 @@ const HowToJoin = () => {
       icon: "🟩",
       image: javaTutorial,
       steps: [
-        'Apri Minecraft con la versione 1.8 o superiore',
-        'Vai su "Multiplayer"',
-        'Clicca su "Add Server"',
+        'Apri Minecraft',
+        'Vai su Multiplayer',
+        'Clicca su Aggiungi Server',
         'Inserisci come nome "Cristo.gg"',
         'Inserisci come indirizzo "cristo.gg"',
-        'Clicca "Done" e connettiti!'
+        'Clicca fatto e connettiti'
       ]
     },
     {

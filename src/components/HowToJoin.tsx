@@ -48,7 +48,7 @@ const HowToJoin = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-dark">
+    <section className="py-20 px-4 bg-background">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-russo text-center mb-4">
           Come <span className="bg-gradient-primary bg-clip-text text-transparent">Entrare</span> su Cristo.gg

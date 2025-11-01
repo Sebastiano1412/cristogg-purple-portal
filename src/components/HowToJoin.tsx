@@ -50,10 +50,10 @@ const HowToJoin = () => {
   return (
     <section className="py-20 px-4 bg-background">
       <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Come <span className="bg-gradient-primary bg-clip-text text-transparent">Entrare</span> su Cristo.gg
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto font-poppins animate-fade-in" style={{ animationDelay: '0.1s' }}>
+        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto font-poppins">
           Scopri come entrare su Cristo.gg da Java, Bedrock e Console con i tutorial qui sotto!
         </p>
 
@@ -61,8 +61,7 @@ const HowToJoin = () => {
           {tutorials.map((tutorial, index) => (
             <Card
               key={index}
-              className="group overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 animate-fade-in"
-              style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+              className="group overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
             >
               <div className="relative h-64 overflow-hidden bg-muted">
                 <img
@@ -83,12 +82,8 @@ const HowToJoin = () => {
                 
                 <div className="space-y-3">
                   {tutorial.steps.map((step, stepIndex) => (
-                    <div 
-                      key={stepIndex} 
-                      className="flex gap-3 opacity-0 animate-fade-in"
-                      style={{ animationDelay: `${0.5 + index * 0.15 + stepIndex * 0.05}s`, animationFillMode: 'forwards' }}
-                    >
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold font-poppins transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <div key={stepIndex} className="flex gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold font-poppins">
                         {stepIndex + 1}
                       </span>
                       <p className="text-sm text-foreground/80 font-poppins">{step}</p>

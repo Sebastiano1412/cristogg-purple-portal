@@ -35,7 +35,7 @@ const Hero = () => {
             className="h-32 md:h-40 w-auto animate-float drop-shadow-[0_0_30px_rgba(168,85,247,0.5)]"
           />
         </div>
-        <p className="text-xl md:text-2xl text-foreground/90 mb-12 font-inter">
+        <p className="text-xl md:text-2xl text-foreground/90 mb-12 font-poppins font-medium">
           Unisciti alla nostra community e vivi un'esperienza unica su Minecraft!
         </p>
 
@@ -46,22 +46,22 @@ const Hero = () => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-muted-foreground font-inter">Server Online</span>
+                <span className="text-sm text-muted-foreground font-poppins">Server Online</span>
               </div>
               <div className="flex items-center gap-2 text-primary">
                 <Users className="w-4 h-4" />
-                <span className="font-bold font-inter">{onlinePlayers} online</span>
+                <span className="font-bold font-poppins">{onlinePlayers} online</span>
               </div>
             </div>
             <div className="mb-4">
-              <p className="text-sm text-muted-foreground mb-2 font-inter">IP del Server</p>
-              <p className="text-2xl font-inter font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <p className="text-sm text-muted-foreground mb-2 font-poppins">IP del Server</p>
+              <p className="text-2xl font-poppins font-bold bg-gradient-primary bg-clip-text text-transparent">
                 {serverIP}
               </p>
             </div>
             <Button
               onClick={copyIP}
-              className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 font-inter font-semibold"
+              className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 font-poppins font-semibold"
               size="lg"
             >
               {copiedIP ? (
@@ -83,22 +83,22 @@ const Hero = () => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-sm text-muted-foreground font-inter">Community Attiva</span>
+                <span className="text-sm text-muted-foreground font-poppins">Community Attiva</span>
               </div>
               <div className="flex items-center gap-2 text-primary">
                 <Users className="w-4 h-4" />
-                <span className="font-bold font-inter">1.2k membri</span>
+                <span className="font-bold font-poppins">1.2k membri</span>
               </div>
             </div>
             <div className="mb-4">
-              <p className="text-sm text-muted-foreground mb-2 font-inter">Discord Server</p>
-              <p className="text-2xl font-inter font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <p className="text-sm text-muted-foreground mb-2 font-poppins">Discord Server</p>
+              <p className="text-2xl font-poppins font-bold bg-gradient-primary bg-clip-text text-transparent">
                 discord.gg/cristogg
               </p>
             </div>
             <Button
               asChild
-              className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 font-inter font-semibold"
+              className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 font-poppins font-semibold"
               size="lg"
             >
               <a

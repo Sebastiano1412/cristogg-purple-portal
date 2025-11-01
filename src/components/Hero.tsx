@@ -1,13 +1,51 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Copy, Check, Users } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-bg.jpg";
 import logoImage from "@/assets/logo.png";
+
 const Hero = () => {
   const [copiedIP, setCopiedIP] = useState(false);
-  const [onlinePlayers, setOnlinePlayers] = useState(42); // Mock data
+  const [onlinePlayers, setOnlinePlayers] = useState(0);
+  const [discordMembers, setDiscordMembers] = useState(0);
   const serverIP = "cristo.gg";
+
+  useEffect(() => {
+    const fetchMinecraftStatus = async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke('minecraft-status');
+        if (!error && data) {
+          setOnlinePlayers(data.players);
+        }
+      } catch (error) {
+        console.error('Error fetching Minecraft status:', error);
+      }
+    };
+
+    const fetchDiscordStatus = async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke('discord-status');
+        if (!error && data) {
+          setDiscordMembers(data.members);
+        }
+      } catch (error) {
+        console.error('Error fetching Discord status:', error);
+      }
+    };
+
+    fetchMinecraftStatus();
+    fetchDiscordStatus();
+
+    // Refresh every 60 seconds
+    const interval = setInterval(() => {
+      fetchMinecraftStatus();
+      fetchDiscordStatus();
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
   const copyIP = () => {
     navigator.clipboard.writeText(serverIP);
     setCopiedIP(true);
@@ -67,7 +105,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-2 text-primary">
                 <Users className="w-4 h-4" />
-                <span className="font-bold font-poppins">1.2k membri</span>
+                <span className="font-bold font-poppins">{discordMembers} online</span>
               </div>
             </div>
             <div className="mb-4">

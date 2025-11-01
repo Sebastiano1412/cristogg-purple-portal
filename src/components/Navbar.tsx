@@ -1,4 +1,4 @@
-import { Menu, X, Home, MessageSquare, ShoppingBag, Map } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo.png";
@@ -7,10 +7,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "/", icon: Home, external: false },
-    { name: "Forum", href: "https://forum.cristo.gg", icon: MessageSquare, external: true },
-    { name: "Store", href: "https://store.cristo.gg", icon: ShoppingBag, external: true },
-    { name: "Mappa", href: "https://mappa.cristo.gg", icon: Map, external: true },
+    { name: "Home", href: "/", external: false },
+    { name: "Forum", href: "https://forum.cristo.gg", external: true },
+    { name: "Store", href: "https://store.cristo.gg", external: true },
+    { name: "Mappa", href: "https://mappa.cristo.gg", external: true },
   ];
 
   return (
@@ -26,19 +26,17 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation - Centrato */}
-          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
-              const IconComponent = link.icon;
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 group"
+                  className="relative text-foreground hover:text-primary transition-colors duration-200 font-medium text-sm uppercase tracking-wider after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                 >
-                  <IconComponent className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium">{link.name}</span>
+                  {link.name}
                 </a>
               );
             })}
@@ -59,18 +57,16 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
             {navLinks.map((link) => {
-              const IconComponent = link.icon;
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 py-3 text-foreground hover:text-primary transition-colors"
+                  className="block py-3 text-foreground hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm"
                   onClick={() => setIsOpen(false)}
                 >
-                  <IconComponent className="w-5 h-5" />
-                  <span className="font-medium">{link.name}</span>
+                  {link.name}
                 </a>
               );
             })}

@@ -13,7 +13,7 @@ const GameModes = () => {
     },
     {
       title: "Inferno",
-      description: "Combatti, guadagna anime e ottieni cuori.",
+      description: "Combatti fino all'ultimo sangue per diventare il più forte del Server!",
       image: infernoImage,
       available: true,
     },

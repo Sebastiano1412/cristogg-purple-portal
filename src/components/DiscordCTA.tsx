@@ -31,7 +31,7 @@ const DiscordCTA = () => {
             UNISCITI AL NOSTRO DISCORD
           </h2>
 
-          <p className="text-lg md:text-xl mb-8 font-poppins text-white/90 max-w-2xl mx-auto">E</p>
+          <p className="text-lg md:text-xl mb-8 font-poppins text-white/90 max-w-2xl mx-auto">Entra all'interno del nostro Server Discord! Chatta con altri giocatori, crea nuove amicizie, partecipa agli eventi e ricevi supporto dal nostro Staff!</p>
 
           <Button asChild size="lg" className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-2 border-white/30 font-poppins font-bold text-lg px-8 py-6 transition-all duration-300 hover:scale-105">
             <a href="https://discord.gg/cristogg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">

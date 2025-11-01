@@ -55,25 +55,39 @@ const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Overlay */}
         {isOpen && (
-          <div className="md:hidden pt-4 mt-4 border-t border-primary/30 animate-fade-in">
-            {navLinks.map((link) => {
-              const IconComponent = link.icon;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 py-3 px-2 text-foreground hover:bg-primary/20 rounded-lg transition-colors"
+          <div className="fixed inset-0 z-[60] md:hidden animate-fade-in">
+            <div className="absolute inset-0 bg-background/80 backdrop-blur-xl" onClick={() => setIsOpen(false)} />
+            <div className="relative m-4 bg-primary/20 backdrop-blur-xl border border-primary/30 rounded-3xl p-6 shadow-glow animate-scale-in">
+              <div className="flex items-center justify-between mb-6">
+                <img src={logoImage} alt="Cristo.gg Logo" className="h-8 w-8" />
+                <button
                   onClick={() => setIsOpen(false)}
+                  className="text-foreground hover:text-primary transition-colors"
                 >
-                  <IconComponent className="w-5 h-5" />
-                  <span className="font-medium">{link.name}</span>
-                </a>
-              );
-            })}
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              <div className="space-y-2">
+                {navLinks.map((link) => {
+                  const IconComponent = link.icon;
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="flex items-center gap-4 py-4 px-4 text-foreground hover:bg-primary/30 rounded-2xl transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <IconComponent className="w-6 h-6" />
+                      <span className="font-medium text-lg">{link.name}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         )}
       </div>

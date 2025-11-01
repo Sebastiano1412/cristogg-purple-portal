@@ -61,14 +61,14 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 pb-12">
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-12 animate-scale-in">
           <img src={logoImage} alt="Cristo.gg" className="h-48 md:h-64 w-auto animate-float drop-shadow-[0_0_40px_rgba(168,85,247,0.6)]" />
         </div>
 
         {/* Action Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
           {/* Server IP Card */}
-          <Card className="bg-card/90 backdrop-blur-sm border-primary/30 p-6 hover:shadow-glow transition-all duration-300 group">
+          <Card className="bg-card/90 backdrop-blur-sm border-primary/30 p-6 hover:shadow-glow hover:-translate-y-2 transition-all duration-300 group">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
@@ -97,7 +97,7 @@ const Hero = () => {
           </Card>
 
           {/* Discord Card */}
-          <Card className="bg-card/90 backdrop-blur-sm border-primary/30 p-6 hover:shadow-glow transition-all duration-300 group">
+          <Card className="bg-card/90 backdrop-blur-sm border-primary/30 p-6 hover:shadow-glow hover:-translate-y-2 transition-all duration-300 group">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>

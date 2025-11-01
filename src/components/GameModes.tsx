@@ -28,10 +28,10 @@ const GameModes = () => {
   return (
     <section className="py-20 px-4 bg-background">
       <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in">
           Le Nostre <span className="bg-gradient-primary bg-clip-text text-transparent">Modalità</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
           Scopri le nostre modalità di gioco uniche. Ogni modalità offre un'esperienza diversa con funzionalità esclusive.
         </p>
 
@@ -39,7 +39,8 @@ const GameModes = () => {
           {modes.map((mode, index) => (
             <Card
               key={index}
-              className="group overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow cursor-pointer"
+              className="group overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 cursor-pointer animate-fade-in"
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <div className="relative h-64 overflow-hidden">
                 <img

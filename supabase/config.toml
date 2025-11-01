@@ -1,1 +1,7 @@
 project_id = "vyhjsdanmozygdmyetxo"
+
+[functions.minecraft-status]
+verify_jwt = false
+
+[functions.discord-status]
+verify_jwt = false

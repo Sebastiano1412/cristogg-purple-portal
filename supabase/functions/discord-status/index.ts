@@ -12,7 +12,7 @@ serve(async (req) => {
 
   try {
     // Discord Widget API - requires widget to be enabled in server settings
-    const guildId = "1317246766072156160"; // Replace with actual guild ID
+    const guildId = "1372331989281275994";
     const response = await fetch(`https://discord.com/api/guilds/${guildId}/widget.json`);
     
     if (!response.ok) {

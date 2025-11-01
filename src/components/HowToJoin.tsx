@@ -11,11 +11,11 @@ const HowToJoin = () => {
       image: javaTutorial,
       steps: [
         'Apri Minecraft',
-        'Vai su Multiplayer',
-        'Clicca su Aggiungi Server',
+        'Vai su "Multigiocatore"',
+        'Clicca su "Aggiungi Server"',
         'Inserisci come nome "Cristo.gg"',
         'Inserisci come indirizzo "cristo.gg"',
-        'Clicca fatto e connettiti'
+        'Clicca "Fatto" e connettiti!'
       ]
     },
     {

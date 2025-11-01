@@ -57,19 +57,15 @@ const Navbar = () => {
 
         {/* Mobile Navigation Overlay */}
         {isOpen && (
-          <div className="fixed inset-0 z-[60] md:hidden animate-fade-in">
-            <div className="absolute inset-0 bg-background/80 backdrop-blur-xl" onClick={() => setIsOpen(false)} />
-            <div className="relative m-4 bg-primary/20 backdrop-blur-xl border border-primary/30 rounded-3xl p-6 shadow-glow animate-scale-in">
-              <div className="flex items-center justify-between mb-6">
-                <img src={logoImage} alt="Cristo.gg Logo" className="h-8 w-8" />
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              <div className="space-y-2">
+          <div className="fixed top-20 left-4 right-4 z-[60] md:hidden animate-fade-in">
+            <div className="bg-primary/20 backdrop-blur-xl border border-primary/30 rounded-3xl p-6 shadow-glow animate-scale-in">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-4 right-4 text-foreground hover:text-primary transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <div className="space-y-2 mt-8">
                 {navLinks.map((link) => {
                   const IconComponent = link.icon;
                   return (

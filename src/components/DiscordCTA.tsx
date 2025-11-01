@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const DiscordCTA = () => {
   return (
-    <section className="relative overflow-hidden py-20 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700">
+    <section className="relative overflow-hidden py-20 bg-gradient-to-br from-primary via-secondary to-accent">
       {/* Top Wave */}
       <div className="absolute top-0 left-0 w-full">
         <svg viewBox="0 0 1440 120" className="w-full h-auto">

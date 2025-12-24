@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import italiaImage from "@/assets/italia-mode.jpg";
-import comingSoonImage from "@/assets/coming-soon.jpg";
+import oneblockImage from "@/assets/oneblock-mode.jpg";
 
 const GameModes = () => {
   const modes = [
@@ -13,7 +13,7 @@ const GameModes = () => {
     {
       title: "OneBlock",
       description: "Inizia la tua avventura da un solo blocco e costruisci la tua isola.",
-      image: comingSoonImage,
+      image: oneblockImage,
       available: true,
     },
   ];
@@ -28,7 +28,7 @@ const GameModes = () => {
           Scopri le nostre modalità di gioco uniche. Ogni modalità offre un'esperienza diversa con funzionalità esclusive.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {modes.map((mode, index) => (
             <Card
               key={index}

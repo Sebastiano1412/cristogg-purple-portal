@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
 import italiaImage from "@/assets/italia-mode.jpg";
-import infernoImage from "@/assets/inferno-mode.jpg";
 import comingSoonImage from "@/assets/coming-soon.jpg";
 
 const GameModes = () => {
@@ -12,16 +11,10 @@ const GameModes = () => {
       available: true,
     },
     {
-      title: "Inferno",
-      description: "Combatti fino all'ultimo sangue per diventare il più forte del Server!",
-      image: infernoImage,
-      available: true,
-    },
-    {
-      title: "Coming Soon",
-      description: "Una nuova modalità sta per arrivare. Resta sintonizzato!",
+      title: "OneBlock",
+      description: "Inizia la tua avventura da un solo blocco e costruisci la tua isola.",
       image: comingSoonImage,
-      available: false,
+      available: true,
     },
   ];
 

@@ -7,14 +7,16 @@ export const Spoiler = Node.create({
   group: 'block',
   content: 'block+',
   defining: true,
-  isolating: false,
-  
+
   addAttributes() {
     return {
       title: {
         default: 'Spoiler',
-        parseHTML: element => element.getAttribute('data-title') || 'Spoiler',
-        renderHTML: attributes => ({
+        parseHTML: (element) => {
+          const el = element as HTMLElement;
+          return el.getAttribute('data-title') || 'Spoiler';
+        },
+        renderHTML: (attributes) => ({
           'data-title': attributes.title,
         }),
       },
@@ -23,35 +25,31 @@ export const Spoiler = Node.create({
 
   parseHTML() {
     return [
-      {
-        tag: 'div[data-spoiler]',
-        getAttrs: element => ({
-          title: (element as HTMLElement).getAttribute('data-title') || 'Spoiler',
-        }),
-      },
+      // New format
+      { tag: 'details[data-spoiler]' },
+      // Legacy format
+      { tag: 'div[data-spoiler]' },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['div', mergeAttributes(HTMLAttributes, { 
-      'data-spoiler': '', 
-      'data-title': HTMLAttributes['data-title'] || 'Spoiler',
-      class: 'spoiler-block' 
-    }), 0];
+    const title = (HTMLAttributes as Record<string, any>)['data-title'] || 'Spoiler';
+
+    return [
+      'details',
+      mergeAttributes(HTMLAttributes, {
+        'data-spoiler': '',
+        class: 'spoiler-block',
+      }),
+      ['summary', { contenteditable: 'false' }, title],
+      ['div', { class: 'spoiler-body' }, 0],
+    ];
   },
 
   addNodeView() {
     return ReactNodeViewRenderer(SpoilerComponent);
   },
-
-  addKeyboardShortcuts() {
-    return {
-      // Allow exiting the spoiler with Enter at the end
-      'Mod-Enter': () => {
-        return this.editor.commands.exitCode();
-      },
-    };
-  },
 });
 
 export default Spoiler;
+

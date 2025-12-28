@@ -3,9 +3,10 @@ import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
 import { Button } from '@/components/ui/button';
-import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2 } from 'lucide-react';
+import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, ChevronDown } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useRef } from 'react';
+import { Spoiler } from './editor/SpoilerExtension';
 
 interface RichTextEditorProps {
   content: string;
@@ -27,6 +28,7 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
       Link.configure({
         openOnClick: false,
       }),
+      Spoiler,
     ],
     content,
     onUpdate: ({ editor }) => {
@@ -64,6 +66,14 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
     if (url) {
       editor.chain().focus().setLink({ href: url }).run();
     }
+  };
+
+  const addSpoiler = () => {
+    editor.chain().focus().insertContent({
+      type: 'spoiler',
+      attrs: { title: 'Spoiler' },
+      content: [{ type: 'paragraph', content: [{ type: 'text', text: 'Contenuto...' }] }],
+    }).run();
   };
 
   return (
@@ -131,6 +141,15 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
           className={editor.isActive('link') ? 'bg-primary/20' : ''}
         >
           <LinkIcon className="w-4 h-4" />
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          onClick={addSpoiler}
+          title="Aggiungi Spoiler"
+        >
+          <ChevronDown className="w-4 h-4" />
         </Button>
         {showImageUpload && (
           <>

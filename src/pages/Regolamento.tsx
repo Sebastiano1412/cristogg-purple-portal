@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet';
+import SpoilerRenderer from '@/components/SpoilerRenderer';
 
 const Regolamento = () => {
   const [content, setContent] = useState('');
@@ -47,10 +48,7 @@ const Regolamento = () => {
                   <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                 </div>
               ) : content ? (
-                <div 
-                  className="prose prose-invert max-w-none"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <SpoilerRenderer content={content} />
               ) : (
                 <p className="text-muted-foreground text-center">
                   Il regolamento sarà disponibile a breve.

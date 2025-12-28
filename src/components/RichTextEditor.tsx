@@ -1,13 +1,13 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
-import Youtube from '@tiptap/extension-youtube';
 import { Button } from '@/components/ui/button';
 import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, ChevronDown, Video } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useRef } from 'react';
 import { Spoiler } from './editor/SpoilerExtension';
+import { ResizableImageExtension } from './editor/ResizableImageExtension';
+import { ResizableYoutubeExtension } from './editor/ResizableYoutubeExtension';
 
 interface RichTextEditorProps {
   content: string;
@@ -21,7 +21,7 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
   const editor = useEditor({
     extensions: [
       StarterKit,
-      Image.configure({
+      ResizableImageExtension.configure({
         HTMLAttributes: {
           class: 'max-w-full rounded-lg',
         },
@@ -29,10 +29,7 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
       Link.configure({
         openOnClick: false,
       }),
-      Youtube.configure({
-        HTMLAttributes: {
-          class: 'w-full aspect-video rounded-lg',
-        },
+      ResizableYoutubeExtension.configure({
         width: 640,
         height: 360,
       }),

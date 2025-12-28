@@ -1,4 +1,4 @@
-import { Menu, X, Home, MessageSquare, ShoppingBag, Map } from "lucide-react";
+import { Menu, X, Home, ShoppingBag, Map, FileText, BookOpen } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo.png";
@@ -8,7 +8,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/", icon: Home, external: false },
-    { name: "Forum", href: "https://forum.cristo.gg", icon: MessageSquare, external: true },
+    { name: "Regolamento", href: "/regolamento", icon: FileText, external: false },
+    { name: "Guide", href: "/guide", icon: BookOpen, external: false },
     { name: "Store", href: "https://store.cristo.gg", icon: ShoppingBag, external: true },
     { name: "Mappa", href: "https://mappa.cristo.gg", icon: Map, external: true },
   ];

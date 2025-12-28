@@ -1,4 +1,4 @@
-import { Menu, X, Home, ShoppingBag, Map, FileText, BookOpen } from "lucide-react";
+import { Menu, X, Home, ShoppingBag, Map, FileText, BookOpen, UserPlus } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo.png";
@@ -10,6 +10,7 @@ const Navbar = () => {
     { name: "Home", href: "/", icon: Home, external: false },
     { name: "Regolamento", href: "/regolamento", icon: FileText, external: false },
     { name: "Guide", href: "/guide", icon: BookOpen, external: false },
+    { name: "Candidature", href: "https://candidature.cristo.gg", icon: UserPlus, external: true },
     { name: "Store", href: "https://store.cristo.gg", icon: ShoppingBag, external: true },
     { name: "Mappa", href: "https://mappa.cristo.gg", icon: Map, external: true },
   ];

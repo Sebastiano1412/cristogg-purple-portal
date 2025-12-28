@@ -41,10 +41,10 @@ const Guide = () => {
         <meta name="description" content="Scopri le guide del server Minecraft Cristo.gg" />
       </Helmet>
       
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
         
-        <main className="pt-32 pb-16 px-4">
+        <main className="pt-32 pb-16 px-4 flex-1">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-russo text-center mb-12 bg-gradient-primary bg-clip-text text-transparent">
               Guide

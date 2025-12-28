@@ -2,8 +2,9 @@ import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
+import Youtube from '@tiptap/extension-youtube';
 import { Button } from '@/components/ui/button';
-import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, ChevronDown } from 'lucide-react';
+import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, ChevronDown, Video } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useRef } from 'react';
 import { Spoiler } from './editor/SpoilerExtension';
@@ -27,6 +28,13 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
       }),
       Link.configure({
         openOnClick: false,
+      }),
+      Youtube.configure({
+        HTMLAttributes: {
+          class: 'w-full aspect-video rounded-lg',
+        },
+        width: 640,
+        height: 360,
       }),
       Spoiler,
     ],
@@ -74,6 +82,13 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
       attrs: { title: 'Spoiler' },
       content: [{ type: 'paragraph', content: [{ type: 'text', text: 'Contenuto...' }] }],
     }).run();
+  };
+
+  const addVideo = () => {
+    const url = prompt('Inserisci URL YouTube:');
+    if (url) {
+      editor.commands.setYoutubeVideo({ src: url });
+    }
   };
 
   return (
@@ -150,6 +165,15 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
           title="Aggiungi Spoiler"
         >
           <ChevronDown className="w-4 h-4" />
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          onClick={addVideo}
+          title="Aggiungi Video YouTube"
+        >
+          <Video className="w-4 h-4" />
         </Button>
         {showImageUpload && (
           <>

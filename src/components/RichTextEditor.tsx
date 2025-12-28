@@ -77,11 +77,18 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
   };
 
   const addSpoiler = () => {
-    editor.chain().focus().insertContent({
-      type: 'spoiler',
-      attrs: { title: 'Spoiler' },
-      content: [{ type: 'paragraph', content: [{ type: 'text', text: 'Contenuto...' }] }],
-    }).run();
+    editor
+      .chain()
+      .focus()
+      .insertContent([
+        {
+          type: 'spoiler',
+          attrs: { title: 'Spoiler' },
+          content: [{ type: 'paragraph', content: [{ type: 'text', text: 'Contenuto...' }] }],
+        },
+        { type: 'paragraph' },
+      ])
+      .run();
   };
 
   const addVideo = () => {

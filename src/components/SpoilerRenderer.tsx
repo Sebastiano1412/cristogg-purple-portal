@@ -10,19 +10,22 @@ const SpoilerRenderer = ({ content }: SpoilerRendererProps) => {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Convert spoiler divs to interactive details/summary
-    const spoilers = containerRef.current.querySelectorAll('[data-spoiler]');
+    // Convert legacy spoiler DIVs to interactive <details>/<summary>
+    const spoilers = containerRef.current.querySelectorAll('div[data-spoiler]');
     spoilers.forEach((spoiler) => {
       const title = spoiler.getAttribute('data-title') || 'Spoiler';
       const innerContent = spoiler.innerHTML;
 
       const details = document.createElement('details');
       details.className = 'spoiler-block';
+      details.setAttribute('data-spoiler', '');
+      details.setAttribute('data-title', title);
 
       const summary = document.createElement('summary');
       summary.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0"><polyline points="9 18 15 12 9 6"></polyline></svg><span>${title}</span>`;
 
       const contentDiv = document.createElement('div');
+      contentDiv.className = 'spoiler-body';
       contentDiv.innerHTML = innerContent;
 
       details.appendChild(summary);

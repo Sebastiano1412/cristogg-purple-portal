@@ -2,12 +2,13 @@ import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import { Button } from '@/components/ui/button';
-import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, ChevronDown, Video } from 'lucide-react';
+import { Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, ChevronDown, Video, Youtube } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useRef } from 'react';
 import { Spoiler } from './editor/SpoilerExtension';
 import { ResizableImageExtension } from './editor/ResizableImageExtension';
 import { ResizableYoutubeExtension } from './editor/ResizableYoutubeExtension';
+import { Video as VideoExtension } from './editor/VideoExtension';
 
 interface RichTextEditorProps {
   content: string;
@@ -17,6 +18,7 @@ interface RichTextEditorProps {
 
 const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichTextEditorProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const editor = useEditor({
     extensions: [
@@ -33,6 +35,7 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
         width: 640,
         height: 360,
       }),
+      VideoExtension,
       Spoiler,
     ],
     content,
@@ -88,11 +91,34 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
       .run();
   };
 
-  const addVideo = () => {
+  const addYoutubeVideo = () => {
     const url = prompt('Inserisci URL YouTube:');
     if (url) {
       editor.commands.setYoutubeVideo({ src: url });
     }
+  };
+
+  const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Date.now()}.${fileExt}`;
+
+    const { data, error } = await supabase.storage
+      .from('guide-videos')
+      .upload(fileName, file);
+
+    if (error) {
+      console.error('Error uploading video:', error);
+      return;
+    }
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('guide-videos')
+      .getPublicUrl(data.path);
+
+    editor.commands.setVideo({ src: publicUrl });
   };
 
   return (
@@ -174,10 +200,10 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
           type="button"
           variant="ghost"
           size="icon"
-          onClick={addVideo}
+          onClick={addYoutubeVideo}
           title="Aggiungi Video YouTube"
         >
-          <Video className="w-4 h-4" />
+          <Youtube className="w-4 h-4" />
         </Button>
         {showImageUpload && (
           <>
@@ -185,7 +211,17 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
               type="button"
               variant="ghost"
               size="icon"
+              onClick={() => videoInputRef.current?.click()}
+              title="Carica Video"
+            >
+              <Video className="w-4 h-4" />
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
               onClick={() => fileInputRef.current?.click()}
+              title="Carica Immagine"
             >
               <ImageIcon className="w-4 h-4" />
             </Button>
@@ -194,6 +230,13 @@ const RichTextEditor = ({ content, onChange, showImageUpload = false }: RichText
               type="file"
               accept="image/*"
               onChange={handleImageUpload}
+              className="hidden"
+            />
+            <input
+              ref={videoInputRef}
+              type="file"
+              accept="video/*"
+              onChange={handleVideoUpload}
               className="hidden"
             />
           </>

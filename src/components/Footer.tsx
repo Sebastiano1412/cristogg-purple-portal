@@ -6,8 +6,8 @@ const Footer = () => {
     name: "Home",
     href: "/"
   }, {
-    name: "Forum",
-    href: "https://forum.cristo.gg"
+    name: "Candidature",
+    href: "https://candidature.cristo.gg"
   }, {
     name: "Store",
     href: "https://store.cristo.gg"

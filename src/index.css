@@ -80,4 +80,33 @@ All colors MUST be HSL.
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--primary)) hsl(var(--card));
   }
+
+  /* Prose styling for rich text content */
+  .prose h1 {
+    @apply text-3xl font-bold mb-4 text-foreground;
+  }
+  .prose h2 {
+    @apply text-2xl font-bold mb-3 text-foreground;
+  }
+  .prose h3 {
+    @apply text-xl font-bold mb-2 text-foreground;
+  }
+  .prose ul {
+    @apply list-disc pl-6 mb-4;
+  }
+  .prose ol {
+    @apply list-decimal pl-6 mb-4;
+  }
+  .prose li {
+    @apply mb-1;
+  }
+  .prose p {
+    @apply mb-3;
+  }
+  .prose a {
+    @apply text-primary underline;
+  }
+  .prose img {
+    @apply max-w-full rounded-lg my-4;
+  }
 }

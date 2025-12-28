@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet';
 import { ArrowLeft } from 'lucide-react';
+import SpoilerRenderer from '@/components/SpoilerRenderer';
 
 interface Guide {
   id: string;
@@ -94,10 +95,7 @@ const GuideDetail = () => {
             </h1>
             
             <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
-              <div 
-                className="prose prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: guide.content }}
-              />
+              <SpoilerRenderer content={guide.content} />
             </div>
           </div>
         </main>

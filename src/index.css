@@ -109,4 +109,18 @@ All colors MUST be HSL.
   .prose img {
     @apply max-w-full rounded-lg my-4;
   }
+
+  /* Spoiler block styling for rendered content */
+  .spoiler-block {
+    @apply my-4 border border-primary/30 rounded-lg overflow-hidden bg-card/50;
+  }
+  .spoiler-block > summary {
+    @apply flex items-center gap-2 px-4 py-3 bg-muted/50 hover:bg-muted/80 transition-colors cursor-pointer font-medium list-none;
+  }
+  .spoiler-block > summary::-webkit-details-marker {
+    display: none;
+  }
+  .spoiler-block > div {
+    @apply p-4;
+  }
 }
